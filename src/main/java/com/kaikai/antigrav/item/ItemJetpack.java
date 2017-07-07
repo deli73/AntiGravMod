@@ -34,7 +34,7 @@ public class ItemJetpack extends Item {
 			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, p.getHeldItem(h));
 		}
 		
-		
+		//I'm not sure, but I think there's probably a better way to do this in 3d space not 2d + up/down
 		
 		float x = 0f;
 		float y = 0f;
@@ -46,7 +46,7 @@ public class ItemJetpack extends Item {
 		else {DegYaw = p.rotationYaw;}
 		x = (float) -Math.sin(Math.toRadians(DegYaw));
 		z = (float) Math.cos(Math.toRadians(DegYaw));
-		System.out.println(DegYaw);
+		//System.out.println(DegYaw);
 		//Pitch
 		float DegPitch = -(p.rotationPitch);
 		y = DegPitch/90;
