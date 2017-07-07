@@ -1,6 +1,5 @@
 package com.kaikai.antigrav.item;
 
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +10,6 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
 
 public class ItemJetpack extends Item {
 	public ItemJetpack() {
@@ -19,7 +17,6 @@ public class ItemJetpack extends Item {
 		this.setUnlocalizedName("jetpack");
 		this.setCreativeTab(CreativeTabs.TRANSPORTATION);
 		this.setMaxStackSize(1);
-		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(this.getRegistryName().toString(),"inventory"));
 	}
 	
 	public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand h) {
@@ -46,7 +43,6 @@ public class ItemJetpack extends Item {
 		else {DegYaw = p.rotationYaw;}
 		x = (float) -Math.sin(Math.toRadians(DegYaw));
 		z = (float) Math.cos(Math.toRadians(DegYaw));
-		//System.out.println(DegYaw);
 		//Pitch
 		float DegPitch = -(p.rotationPitch);
 		y = DegPitch/90;
@@ -68,7 +64,7 @@ public class ItemJetpack extends Item {
 	
 	public void onUpdate(ItemStack s, World w, Entity e, int slot, boolean selected) {
 		if (selected) {
-			e.fallDistance = 0; //Take no fall damage for time holding jetpack.
+			e.fallDistance = 0; //Take no fall damage when holding jetpack.
 		}
 	}
 }
