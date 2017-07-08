@@ -39,8 +39,9 @@ public class ItemAntiGravDevice extends Item {
 	
 	public void onUpdate(ItemStack s, World w, Entity e, int slot, boolean selected) {
 		if (e.hasNoGravity()) {//Counteract the natural slowing down.
-			e.motionX *= 1.1;
-			e.motionZ *= 1.1;
+			e.motionX *= 1.098;
+			e.motionZ *= 1.098;
+			e.motionY *= 1/0.98;
 		}
 	}
 	

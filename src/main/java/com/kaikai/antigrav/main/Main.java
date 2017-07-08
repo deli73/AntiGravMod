@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid="antigrav", name="2kai2kai2's Anti-Gravity Mod", version="1.0.2-A")
+@Mod(modid="antigrav", name="2kai2kai2's Anti-Gravity Mod", version="1.0.3-B")
 public class Main {
 	@SidedProxy(clientSide="com.kaikai.antigrav.main.ClientProxy",serverSide="com.kaikai.antigrav.main.ServerProxy")
 	public static CommonProxy proxy;

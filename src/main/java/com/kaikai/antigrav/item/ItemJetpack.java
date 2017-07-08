@@ -20,7 +20,6 @@ public class ItemJetpack extends Item {
 	}
 	
 	public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand h) {
-		
 		if (p.isSneaking()) {
 			if (p.motionX < 0.05) {p.motionX = 0f;}
 			if (p.motionY < 0.05) {p.motionY = 0f;}
@@ -33,20 +32,26 @@ public class ItemJetpack extends Item {
 		
 		//I'm not sure, but I think there's probably a better way to do this in 3d space not 2d + up/down
 		
-		float x = 0f;
-		float y = 0f;
-		float z = 0f;
+		double x = 0;
+		double y = 0;
+		double z = 0;
 		
-		//Yaw
-		float DegYaw = 0f;
-		if (p.rotationYaw < 0) {DegYaw = p.rotationYaw + 360;}
-		else {DegYaw = p.rotationYaw;}
-		x = (float) -Math.sin(Math.toRadians(DegYaw));
-		z = (float) Math.cos(Math.toRadians(DegYaw));
-		//Pitch
-		float DegPitch = -(p.rotationPitch);
-		y = DegPitch/90;
+		double RadYaw = 0;
+		if (p.rotationYaw < 0) {RadYaw = Math.toRadians(p.rotationYaw + 360);}
+		else {RadYaw = Math.toRadians(p.rotationYaw);}
 		
+		double RadPitch = Math.toRadians(p.rotationPitch+90);
+		
+		z = (Math.cos(RadYaw) * Math.sin(RadPitch));
+		x = -(Math.sin(RadYaw) * Math.sin(RadPitch));
+		y = Math.cos(RadPitch);
+		
+		//Adjust so straight up is just straight up.                            However, It's still not a sphere.
+		//x *= Math.abs(Math.abs(y)-1);
+		//z *= Math.abs(Math.abs(y)-1);
+		//y *= Math.abs(( (Math.abs(x))+(Math.abs(z)) )/2 - 1);
+		
+		//System.out.println("++++++++++++++++++++++++" + x + ", " + y + ", " + z + "  ----  " + (Math.abs(x)+Math.abs(y)+Math.abs(z)));
 		//Add to motion
 		if (p.hasNoGravity()) {
 			p.motionX += x*0.25;
