@@ -21,6 +21,7 @@ public class ClientProxy extends CommonProxy{
 		regitemmod(0);//antigravdevice
 		regitemmod(1);//jetpack
 		regitemmod(2);//gravdeflector
+		regitemmod(3);//antigravsword
 		
 	}
 

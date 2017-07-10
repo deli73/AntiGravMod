@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "d",
+    "d",
+    "s"
+  ],
+  "key": {
+    "d": {
+      "item": "antigrav:gravdeflector",
+      "data": 0
+    },
+    "s": {
+      "item": "minecraft:stick",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "antigrav:antigravsword",
+    "data": 0
+  }
+}

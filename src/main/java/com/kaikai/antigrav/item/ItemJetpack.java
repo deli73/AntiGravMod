@@ -30,8 +30,6 @@ public class ItemJetpack extends Item {
 			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, p.getHeldItem(h));
 		}
 		
-		//I'm not sure, but I think there's probably a better way to do this in 3d space not 2d + up/down
-		
 		double x = 0;
 		double y = 0;
 		double z = 0;
@@ -46,13 +44,7 @@ public class ItemJetpack extends Item {
 		x = -(Math.sin(RadYaw) * Math.sin(RadPitch));
 		y = Math.cos(RadPitch);
 		
-		//Adjust so straight up is just straight up.                            However, It's still not a sphere.
-		//x *= Math.abs(Math.abs(y)-1);
-		//z *= Math.abs(Math.abs(y)-1);
-		//y *= Math.abs(( (Math.abs(x))+(Math.abs(z)) )/2 - 1);
-		
-		//System.out.println("++++++++++++++++++++++++" + x + ", " + y + ", " + z + "  ----  " + (Math.abs(x)+Math.abs(y)+Math.abs(z)));
-		//Add to motion
+		//Apply to motion
 		if (p.hasNoGravity()) {
 			p.motionX += x*0.25;
 			p.motionY += y*0.25;

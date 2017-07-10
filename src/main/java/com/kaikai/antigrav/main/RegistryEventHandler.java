@@ -1,6 +1,7 @@
 package com.kaikai.antigrav.main;
 
 import com.kaikai.antigrav.item.ItemAntiGravDevice;
+import com.kaikai.antigrav.item.ItemAntiGravSword;
 import com.kaikai.antigrav.item.ItemGravDeflector;
 import com.kaikai.antigrav.item.ItemJetpack;
 
@@ -15,7 +16,8 @@ public class RegistryEventHandler {
 	public static final Item[] ITEMS = {
 			new ItemAntiGravDevice(),
 			new ItemJetpack(),
-			new ItemGravDeflector()
+			new ItemGravDeflector(),
+			new ItemAntiGravSword()
 			};
 	
 	
