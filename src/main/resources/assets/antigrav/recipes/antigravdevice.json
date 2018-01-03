@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "npn",
+    "isi",
+    "npn"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:nether_star",
+      "data": 0
+    },
+    "i": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
+    },
+    "p": {
+      "item": "antigrav:gravdeflector",
+      "data": 0
+    },
+    "n": {
+      "item": "minecraft:iron_nugget",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "antigrav:antigravdevice",
+    "data": 0
+  }
+}

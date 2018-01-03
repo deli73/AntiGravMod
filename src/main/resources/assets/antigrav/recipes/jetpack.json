@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bib",
+    "pip",
+    "n n"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:iron_block",
+      "data": 0
+    },
+    "i": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
+    },
+    "p": {
+      "item": "antigrav:gravdeflector",
+      "data": 0
+    },
+    "n": {
+      "item": "minecraft:iron_nugget",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "antigrav:jetpack",
+    "data": 0
+  }
+}

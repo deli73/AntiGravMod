@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "nan",
+    "seg",
+    "nrn"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:anvil",
+      "data": 0
+    },
+    "g": {
+      "item": "minecraft:gravel",
+      "data": 0
+    },
+    "s": {
+      "item": "minecraft:sand",
+      "data": 0
+    },
+    "r": {
+      "item": "minecraft:sand",
+      "data": 1
+    },
+    "e": {
+      "item": "minecraft:ender_eye",
+      "data": 0
+    },
+    "n": {
+      "item": "minecraft:iron_nugget",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "antigrav:gravdeflector",
+    "data": 0
+  }
+}

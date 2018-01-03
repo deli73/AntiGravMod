@@ -1,0 +1,5 @@
+item.antigravdevice.name=Anti-Gravity Device
+item.jetpack.name=Jetpack
+item.gravdeflector.name=Gravity Deflector
+item.antigravsword.name=Anti-Gravity Sword
+antigrav.commands.gravity.usage=/gravity <player|entity> <on|off|toggle>
