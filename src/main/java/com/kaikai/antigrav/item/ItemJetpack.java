@@ -24,7 +24,11 @@ public class ItemJetpack extends Item {
 			if (p.motionX < 0.05) {p.motionX = 0f;}
 			if (p.motionY < 0.05) {p.motionY = 0f;}
 			if (p.motionZ < 0.05) {p.motionZ = 0f;}
+<<<<<<< HEAD
 			p.motionX *= 0.6;//TODO change this so it slows you down based on the direction you're moving
+=======
+			p.motionX *= 0.6;
+>>>>>>> cdca9d24c2146394ccfc1d54c189bfc2dbb8538d
 			p.motionY *= 0.6;
 			p.motionZ *= 0.6;
 			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, p.getHeldItem(h));
@@ -55,7 +59,11 @@ public class ItemJetpack extends Item {
 			p.motionZ += z*1.25;
 		}
 		
+<<<<<<< HEAD
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, p.getHeldItem(h));
+=======
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, p.getHeldItem(h));
+>>>>>>> cdca9d24c2146394ccfc1d54c189bfc2dbb8538d
 		
 	}
 	
