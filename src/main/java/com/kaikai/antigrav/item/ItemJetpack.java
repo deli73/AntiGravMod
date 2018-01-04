@@ -20,17 +20,6 @@ public class ItemJetpack extends Item {
 	}
 	
 	public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand h) {
-		if (p.isSneaking()) {
-			if (p.motionX < 0.05) {p.motionX = 0f;}
-			if (p.motionY < 0.05) {p.motionY = 0f;}
-			if (p.motionZ < 0.05) {p.motionZ = 0f;}
-			p.motionX *= 0.6;//TODO change this so it slows you down based on the direction you're moving
-			p.motionX *= 0.6;
-			p.motionY *= 0.6;
-			p.motionZ *= 0.6;
-			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, p.getHeldItem(h));
-		}
-		
 		double x = 0;
 		double y = 0;
 		double z = 0;
@@ -63,6 +52,14 @@ public class ItemJetpack extends Item {
 	public void onUpdate(ItemStack s, World w, Entity e, int slot, boolean selected) {
 		if (selected) {
 			e.fallDistance = 0; //Take no fall damage when holding jetpack.
+		}
+		if (e.isSneaking()) {
+			if (e.motionX < 0.05) {e.motionX = 0f;}
+			if (e.motionY < 0.05) {e.motionY = 0f;}
+			if (e.motionZ < 0.05) {e.motionZ = 0f;}
+			e.motionX *= 0.6;//TODO change this so it slows you down based on the direction you're moving
+			e.motionY *= 0.6;
+			e.motionZ *= 0.6;
 		}
 	}
 }

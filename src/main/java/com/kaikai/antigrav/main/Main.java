@@ -38,3 +38,6 @@ public class Main {
     
     public static ToolMaterial toolmaterialantigrav = EnumHelper.addToolMaterial("toolmaterialantigrav", 3, 1024, 10, 2f, 20);
 }
+
+//TODO: EVENT STUFF TO MAKE OTHER ENTITIES WORK RIGHT WITH NOGRAV BUT ALSO CHECK IF THEY HAVE NOAI ON AND DON'T DO IT THEN
+//TODO: COMPLETELY REDO JETPACK MOVEMENT
