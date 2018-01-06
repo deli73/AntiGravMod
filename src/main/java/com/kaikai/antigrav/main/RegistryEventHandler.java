@@ -19,6 +19,7 @@ public class RegistryEventHandler {
 			new ItemGravDeflector(),
 			new ItemAntiGravSword()
 			};
+	public static Item JETPACK = ITEMS[1];
 	
 	
 	@SubscribeEvent
