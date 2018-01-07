@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.UUID;
 
-@Mod(modid="antigrav", name="2kai2kai2's Anti-Gravity Mod", version="1.0.4")
+@Mod(modid="antigrav", name="2kai2kai2's Anti-Gravity Mod", version="T.0.1.1")
 public class Main {
 	@SidedProxy(clientSide="com.kaikai.antigrav.main.ClientProxy",serverSide="com.kaikai.antigrav.main.ServerProxy")
 	public static CommonProxy proxy;
