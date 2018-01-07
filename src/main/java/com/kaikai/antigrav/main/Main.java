@@ -1,21 +1,13 @@
 package com.kaikai.antigrav.main;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3i;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -23,14 +15,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.eventhandler.EventBus;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.UUID;
 
@@ -50,6 +36,8 @@ public class Main {
     public void preInit(FMLPreInitializationEvent e) {
         proxy.preInit(e);
         MinecraftForge.EVENT_BUS.register(proxy);
+        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(SpaceMovementHandler.class);
     }
 
     @EventHandler
@@ -67,7 +55,7 @@ public class Main {
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void update(LivingEvent.LivingUpdateEvent e) { //stop non-player entities from moving normally
         EntityLivingBase entity = e.getEntityLiving();
-        if(entity.getClass().isAssignableFrom(EntityPlayer.class)){
+        if(entity.getClass().isAssignableFrom(EntityPlayer.class) || entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(MOVEMENT_SPEED_MODIFIER_UUID) != null){
             return;
         }
         entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(
@@ -75,8 +63,7 @@ public class Main {
                         0.0,1)
         );
     }
-    
 }
 
-//TODO: EVENT STUFF TO MAKE OTHER ENTITIES WORK RIGHT WITH NOGRAV BUT ALSO CHECK IF THEY HAVE NOAI ON AND DON'T DO IT THEN
-//TODO: COMPLETELY REDO JETPACK MOVEMENT
+//TODO: EVENT STUFF TO MAKE OTHER ENTITIES WORK RIGHT WHEN PUNCHED WITH NOGRAV BUT ALSO CHECK IF THEY HAVE NOAI ON AND DON'T DO IT THEN
+//TODO: ADD SOUNDS AND PARTICLES TO JETPACK
